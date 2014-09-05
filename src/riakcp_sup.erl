@@ -29,7 +29,7 @@ init([]) ->
                 {worker_module, riakcp_worker},
                 {size, PoolSize}, {max_overflow, PoolMaxOverflow}],
 
-    RiakAddr = get_env(riak_address, ?RIAK_ADDR),
+    RiakAddr = os:getenv("RIAK_PORT_8087_TCP_ADDR"),
     RiakPort = get_env(riak_port, ?RIAK_PORT),
     RiakOpts = get_env(riak_options, []),
     RiakArgs = {RiakAddr, RiakPort, RiakOpts},
